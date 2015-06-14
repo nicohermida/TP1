@@ -1,17 +1,16 @@
 #include <iostream> 
 #include <fstream>
 
+using namespace std;
+
+#define MAX_EQUIPOS 100
+
 struct Team {
 	char ident[4];
 	char name[32];
 	int firePower;
 	int defensePower;
 };
-
-
-
-using namespace std;
-
 
 int ShowMenu(){
 	
@@ -22,6 +21,7 @@ int ShowMenu(){
 	cin >> option;
 	return option;
 }
+
 bool SaveTeam(Team team){
 	
     FILE *archive = fopen("EQUIPOS.BIN", "ab");
@@ -46,10 +46,12 @@ bool IdentTaken(char ident[4]){
 	fclose(archive);
 	return taken;
 }
+
 void EditTeam(char ident[4]){
 	
 	
 }
+
 void AddTeam(){
 	
 
@@ -94,7 +96,6 @@ void DeleteTeam (){
      }
 
 
-
 void ShowTeams(){
 	
 	FILE *archive = fopen("EQUIPOS.BIN", "rb");
@@ -112,7 +113,7 @@ void ShowTeams(){
 
 int main() {
 	
-    Team listOfTeams[100];
+    Team listOfTeam[MAX_EQUIPOS];
     
 	int option=1;
 	while(option!=0){
@@ -142,3 +143,4 @@ int main() {
 
 	return 0;
 }
+
